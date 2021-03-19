@@ -1,0 +1,451 @@
+body {
+    margin: 0;
+    font-family: pixel;
+    font-size: 6px;
+    color: #fff;
+    height: 100vh;
+    background: rgb(63, 57, 51) url('img/background.jpg') center;
+    background-size: cover;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    z-index: 1;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+button {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.background {
+    position: absolute;
+    bottom: 0;
+    height: 300vh;
+    width: 100%;
+    background: rgb(0, 0, 0) url('img/opacity.png') center;
+    opacity: .65;
+    z-index: -1;
+}
+
+.main {
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 35px;
+    width: 280px;
+    height: 15px;
+    z-index: 3;
+
+    border-bottom: 2.5px solid #3e3b34;
+    background-color: transparent;
+}
+
+.top__1 {
+    background-color: transparent;
+    height: 15px;
+    width: 30px;
+    border-right: 2px solid #3e3b34;
+}
+
+.top__3 {
+    background-color: transparent;
+    height: 15px;
+    width: 30px;
+    border-left: 2px solid #3e3b34;
+}
+
+.game__area {
+    margin-top: 35px;
+    padding: 15px;
+    padding-top: 30px;
+    width: 280px;
+    height: 415px;
+
+/*    background-color: #8d8970;*/
+    border-radius: 10px;
+    border-bottom-right-radius: 45px;
+
+    background: #8d8970 url('img/scratched.png') center;
+    box-shadow:
+    inset rgba(0, 0, 0, .8) -3px -3px 8px,
+    inset rgba(255, 255, 255, .5) 3px 3px 8px,
+    rgba(0, 0, 0, .8) 3px 3px 8px -3px;
+}
+
+.output__area {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+    z-index: 3;
+
+    background: url(img/output_area.png);
+    border-radius: 10px;
+    border-bottom-right-radius: 45px;
+    box-shadow:
+    inset rgba(255, 255, 255, .5) -1px -1px 2px,
+    inset rgba(0, 0, 0) 1px 1px 2px,
+    rgba(255, 255, 255, .5) 1px 1px 2px -1px;
+}
+
+.led {
+    position: relative;
+    left: 5%;
+    top: 30%;
+    z-index: 3;
+
+    background-color: #570000;
+    height: 8px;
+    width: 8px;
+    border: 1.2px solid #000;
+    border-radius: 4px;
+
+    box-shadow:
+    inset rgba(0, 0, 0, .2) -1px -1px 2px,
+    inset rgba(255, 255, 255, .2) 1.5px 1px 2px,
+    rgba(0, 0, 0, .2) 1px 1px 2px -1px;
+}
+
+.led.on {
+    background-color: #cb0000;
+    box-shadow:
+    inset rgba(0, 0, 0, .2) -1px -1px 2px,
+    inset rgba(255, 255, 255, .2) 1.5px 1px 2px,
+    rgba(0, 0, 0, .2) 1px 1px 2px -1px;
+}
+
+.led:after {
+    position: absolute;
+    left: -7px;
+    top: 10px;
+    font-family: sans-serif;
+    content: 'BATTERY';
+    font-size: 5px;
+    color: rgb(255, 255, 255, .7);
+}
+
+.output {
+    display: flex;
+    word-wrap: break-word;
+    margin: auto;
+    width: 75%;
+    height: 70%;
+    z-index: 3;
+
+    background-color: rgb(153, 140, 61, .5);
+    background: url(img/screen.png);
+    background-repeat: no-repeat;
+
+    border: 2px solid #000;
+    border-radius: 5px;
+    z-index: 0;
+
+    box-shadow:
+    inset rgba(0, 0, 0, .2) -50px -20px 60px,
+    inset rgba(255, 255, 255, .1) 10px 10px 60px;
+}
+
+.output.on {
+    background: url(img/screen_on.png);
+    background-repeat: no-repeat;
+    z-index: 1;
+
+    box-shadow:
+    inset rgba(0, 0, 0, .2) -50px -20px 60px,
+    inset rgba(255, 255, 255, .1) 10px 10px 60px;
+}
+
+.text__out {
+    margin: 10px 6px;
+    position: relative;
+    word-wrap: break-word;
+    max-width: 100%;
+    color: #000;
+    font-weight: 500;
+    font-size: 9px;
+    white-space: pre-wrap;
+    z-index: 3;
+}
+
+.text__out span {
+    visibility: hidden;
+}
+.text__out span.visible {
+    visibility: visible;
+}
+
+.text__out span.cursor {
+    width: 1px;
+    background: rgb(0, 0, 0);
+    animation: blinking .7s step-start infinite;
+}
+
+@keyframes blinking {
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.buttons__area {
+    z-index: 3;
+}
+
+.cons__comp {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 100px;
+}
+
+.consensus {
+    display: flex;
+    justify-content: center;
+    margin: auto 0;
+}
+
+.compare {
+    margin: auto 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.in__compare {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 51px;
+    width: 103px;
+    border: 1px solid #000;
+    border-radius: 25.5px;
+
+    transform: rotate(335deg);
+
+/*    background-color: rgb(141, 137, 112);*/
+    background: url(img/scratched_compare.png);
+    background-repeat: no-repeat;
+    box-shadow:
+    inset rgba(255,255,255,.3) -3px -3px 8px,
+    inset rgba(0,0,0, .3) 3px 3px 8px,
+    rgba(255,255,255,.3) 3px 3px 8px -3px;
+}
+
+.button__cons {
+    display: grid;
+    margin-right: 20px;
+    height: 70px;
+    width: 70px;
+
+    color: green;
+    background-color: #22211c;
+    border: 2px solid #000;
+    border-radius: 35px;
+
+    box-shadow:
+    inset rgba(0,0,0,.2) -1px -1px 2px,
+    inset rgba(255,255,255,.2) .3px 1px 2px,
+    rgba(0,0,0,.2) 1px 1px 2px -1px;
+}
+
+.button__cons:before {
+    position: relative;
+    content: 'OK';
+    top: -13px;
+    left: 25px;
+
+    font-family: Gameboy;
+    color: #000;
+    font-size: 9px;
+}
+
+.button__cons:after {
+    position: relative;
+    content: 'TRUE';
+    top: -4px;
+    left: 16px;
+
+    font-family: Gameboy;
+    color: #000;
+    font-size: 9px;
+}
+
+.button__ok {
+    position: relative;
+    top: -9px;
+    left: -2px;
+    height: 35px;
+    width: 70px;
+    background-color: transparent;
+
+    border-color: transparent;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-bottom-width: 1px;
+    border-bottom-color: #000;
+}
+
+.button__ok:active {
+    box-shadow:
+    inset rgba(0,0,0,.005) 1px -15px 20px,
+    inset rgba(255,255,255,.05) 0px 10px 8px,
+    rgba(255,255,255,.05) 0px -2px 6px -1px;
+    border-bottom-width: 2px;
+    border-bottom-color: #0d0d0d;
+}
+
+.button__true {
+    position: relative;
+    top: -9px;
+    left: -2px;
+    height: 35px;
+    width: 70px;
+    background-color: transparent;
+
+    border-color: transparent;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-top-width: 1px;
+    border-top-color: #000;
+}
+
+.button__true:active {
+    box-shadow:
+    inset rgba(0,0,0,.1) -1px -13px 20px,
+    inset rgba(0,0,0,.1) 6px 6px 6px,
+    rgba(255,255,255,.5) 1px 1px 2px -1px;
+    border-top-width: 2px;
+    border-top-color: #2e2e2e;
+}
+
+.button__less,
+.button__more {
+    margin: auto 0;
+    height: 40px;
+    width: 40px;
+
+    background-color: #4d271e;
+    border: 2px solid #000;
+    border-radius: 20px;
+
+    box-shadow:
+    inset rgba(0,0,0,.2) -1px -1px 2px,
+    inset rgba(255,255,255,.08) 1px 1px 2px,
+    rgba(0,0,0,.2) 1px 1px 2px -1px;
+}
+
+.button__less {
+    margin-right: 8px;
+}
+
+.button__more:active,
+.button__less:active {
+    box-shadow:
+    inset rgba(255,255,255,.05) -1px -1px 2px,
+    inset rgba(0, 0, 0, .1) 1px 1px 2px,
+    rgba(255,255,255,.05) 1px 1px 2px -1px;
+}
+
+.button__less:after {
+    position: absolute;
+    top: 53.5px;
+    left: 9.7px;
+    content: 'LESS';
+
+    font-family: Gameboy;
+    color: #000;
+    font-size: 9px;
+
+}
+
+.button__more:after {
+    content: 'MORE';
+    position: absolute;
+    top: 53.5px;
+    left: 57.9px;
+
+    font-family: Gameboy;
+    color: #000;
+    font-size: 9px;
+}
+
+.start__end {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 30%;
+}
+
+
+.button__start,
+.button__end {
+    height: 14px;
+    width: 39px;
+    margin-right: 5px;
+
+    background-color: #22211c;
+    border: 2px solid #000;
+    border-radius: 7px;
+
+    transform: rotate(335deg);
+
+    background-color: rgb(141, 137, 112), radial-gradient(circle at 50% 0, rgb(141, 137, 112, .65), rgb(141, 137, 112, .35));
+    box-shadow:
+    inset rgba(0,0,0,.2) -1px -1px 2px,
+    inset rgba(255,255,255,.2) 1px 1px 2px,
+    rgba(0,0,0,.2) 1px 1px 2px -1px;
+}
+
+.button__start:active,
+.button__end:active {
+    background-color: rgb(141, 137, 112), radial-gradient(circle at 50% 0, rgb(141, 137, 112, .65), rgb(141, 137, 112, .35));
+    box-shadow:
+    inset rgba(255,255,255,.2) -.1px -.1px 2px,
+    inset rgba(0, 0, 0, .2) 1px 1px 2px,
+    rgba(255,255,255,.5) .1px .1px .2px -1px;
+}
+
+.button__start:after {
+    position: absolute;
+    top: 14.5px;
+    left: -1.4px;
+    content: 'START';
+
+    font-family: Gameboy;
+    color: #000;
+    font-size: 8px;
+
+}
+
+.button__end:after {
+    content: 'END';
+    position: absolute;
+    top: 14.5px;
+    left: 6.5px;
+
+    font-family: Gameboy;
+    color: #000;
+    font-size: 8px;
+}
+
+@media (max-width: 728px) {
+    .game__area {
+        height: 90vh;
+        width: 61vh;
+    }
+}

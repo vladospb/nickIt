@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Числеца</title>
+    <link rel="stylesheet" href="style.css">
+    <style>@font-face {font-family: Pixel; src: url(fonts/pixel.ttf);}</style>
+    <style>@font-face {font-family: Gameboy; src: url(fonts/gameboy.ttf);}</style>
+</head>
+<body>
+<div class="background"></div>
+
+<main class="main">
+    <div class="container">
+        <header class="header">
+            <div class="top__1"></div>
+            <div class="top__2"></div>
+            <div class="top__3"></div>
+        </header>
+
+        <div class="game__area">
+            <div class="output__area">
+                <div class="led" id="led"></div>
+                <div class="output" id="output">
+                    <div class="text__out" id="text"></div>
+                </div>
+            </div>
+
+            <div class="buttons__area">
+                <div class="cons__comp">
+                    <div class="consensus">
+                        <div class="button__cons" id="cons">
+                            <button class="button__ok" id="ok"></button>
+                            <button class="button__true" id="true"></button>
+                        </div>
+                    </div>
+
+                    <div class="compare">
+                        <div class="in__compare">
+                            <button class="button__less" id="less"></button>
+
+                            <button class="button__more" id="more"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="start__end">
+                    <button class="button__start" id="start"></button>
+
+                    <button class="button__end"  id="end"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
